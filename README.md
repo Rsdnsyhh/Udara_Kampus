@@ -4,17 +4,17 @@ Aplikasi Flutter untuk memantau kualitas udara di delapan kota kampus secara lan
 
 ## Identitas Kelompok
 
-| No | Nama | NIM | Peran |
-|----|------|-----|-------|
-| 1  |      |     |       |
-| 2  |      |     |       |
-| 3  |      |     |       |
-| 4  |      |     |       |
-| 5  |      |     |       |
+| No  | Nama                         | NIM        |
+| --- | ---------------------------- | ---------- |
+| 1   | Rusdianysah                  | 2409106013 |
+| 2   | Elfin Sinaga                 | 2409106024 |
+| 3   | Akhmad Zifa Al-Fatih         | 2409106025 |
+| 4   | Muhammad Naufal Rifyan Ilham | 2409106034 |
+| 5   | Rangga Lawe                  | 2409106043 |
 
 Mata kuliah: Pemrograman Piranti Bergerak
-Dosen pengampu: (isi nama dosen)
-Kelas: (isi kelas)
+Dosen pengampu: Anton Prafanto, S.Kom., M.T
+Kelas: A'24
 
 ## Deskripsi Aplikasi
 
@@ -34,19 +34,17 @@ Udara Kampus menampilkan indeks kualitas udara (US AQI) dan kadar enam polutan u
 
 ### Tangkapan Layar
 
-| Beranda (udara baik) | Beranda (udara tidak sehat) | Rincian polutan |
-|:---:|:---:|:---:|
-| ![Beranda baik](docs/screenshots/beranda_baik.png) | ![Beranda tidak sehat](docs/screenshots/beranda_tidak_sehat.png) | ![Polutan](docs/screenshots/polutan.png) |
+|                    Beranda (udara baik)                    |                   Beranda (udara tidak sehat)                    |             Rincian polutan              |
+| :--------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------: |
+| ![Beranda baik](docs/screenshots/beranda_udara_sehat.jpeg) | ![Beranda tidak sehat](docs/screenshots/beranda_tidak_sehat.png) | ![Polutan](docs/screenshots/polutan.png) |
 
-| Prakiraan 24 jam | Saran kesehatan | Tampilan galat |
-|:---:|:---:|:---:|
+|               Prakiraan 24 jam               |           Saran kesehatan            |            Tampilan galat            |
+| :------------------------------------------: | :----------------------------------: | :----------------------------------: |
 | ![Prakiraan](docs/screenshots/prakiraan.png) | ![Saran](docs/screenshots/saran.png) | ![Galat](docs/screenshots/galat.png) |
 
-| Peringkat kota | Data lama (offline) |
-|:---:|:---:|
+|                Peringkat kota                |           Data lama (offline)            |
+| :------------------------------------------: | :--------------------------------------: |
 | ![Peringkat](docs/screenshots/peringkat.png) | ![Offline](docs/screenshots/offline.png) |
-
-> Catatan untuk kelompok: letakkan hasil tangkapan layar di folder `docs/screenshots/` dengan nama berkas seperti di atas.
 
 ## Konsep Desain
 
@@ -142,21 +140,21 @@ Kemudian jalankan `flutter build apk --release`. Berkas hasilnya berada di `buil
 
 ## Penanganan Galat
 
-| Situasi | Penanganan |
-|---------|------------|
-| Koneksi terputus, waktu tunggu habis, atau server menjawab kode 5xx | Permintaan diulang otomatis hingga 3 kali dengan jeda yang makin lama. |
-| Kode 400 atau kode 4xx lainnya | Tidak diulang karena hasilnya akan sama. Pesan ditampilkan kepada pengguna. |
-| Kode 429 (terlalu banyak permintaan) | Tidak diulang; pengguna diminta menunggu sebentar. |
-| Isi respons bukan JSON, atau server menandai `error: true` | Diubah menjadi `FormatException` dengan pesan "Data dari server tidak dapat dibaca". |
-| Tipe data tidak sesuai, nilai negatif, atau nilai kosong | Kadar polutan yang tidak valid ditampilkan sebagai "-" (status N/A). Data per jam yang rusak dilewati tanpa menggagalkan seluruh grafik. |
-| AQI tidak ada pada respons | Dianggap gagal total karena nilai utama tidak dapat ditampilkan. |
-| Koordinat kota di luar rentang | Ditolak sebelum permintaan dikirim. |
-| Tidak ada koneksi saat aplikasi dibuka | Data tersimpan dari penyimpanan lokal ditampilkan dan ditandai "DATA LAMA". Bila belum ada data tersimpan, ditampilkan pesan galat dengan tombol "Coba lagi". |
-| Penyimpanan lokal gagal dibaca atau ditulis, atau isinya rusak | Diabaikan tanpa menghentikan aplikasi; data rusak diperlakukan seperti tidak ada. |
-| Satu atau beberapa kota gagal dimuat pada halaman peringkat | Kota lain tetap ditampilkan. Kota yang gagal memakai data tersimpan, atau ditandai "Data tidak tersedia" dan diletakkan di urutan akhir. |
-| Pembaruan otomatis atau tarik-untuk-menyegarkan gagal | Data lama tetap ditampilkan dan ditandai "DATA LAMA". Pada penyegaran manual, pengguna juga diberi tahu lewat SnackBar. |
-| Jawaban lama tiba setelah pengguna berganti kota | Diabaikan menggunakan nomor permintaan. |
-| Jawaban tiba setelah layar ditutup | Diabaikan agar tidak terjadi pembaruan pada objek yang sudah dibuang. |
+| Situasi                                                             | Penanganan                                                                                                                                                    |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Koneksi terputus, waktu tunggu habis, atau server menjawab kode 5xx | Permintaan diulang otomatis hingga 3 kali dengan jeda yang makin lama.                                                                                        |
+| Kode 400 atau kode 4xx lainnya                                      | Tidak diulang karena hasilnya akan sama. Pesan ditampilkan kepada pengguna.                                                                                   |
+| Kode 429 (terlalu banyak permintaan)                                | Tidak diulang; pengguna diminta menunggu sebentar.                                                                                                            |
+| Isi respons bukan JSON, atau server menandai `error: true`          | Diubah menjadi `FormatException` dengan pesan "Data dari server tidak dapat dibaca".                                                                          |
+| Tipe data tidak sesuai, nilai negatif, atau nilai kosong            | Kadar polutan yang tidak valid ditampilkan sebagai "-" (status N/A). Data per jam yang rusak dilewati tanpa menggagalkan seluruh grafik.                      |
+| AQI tidak ada pada respons                                          | Dianggap gagal total karena nilai utama tidak dapat ditampilkan.                                                                                              |
+| Koordinat kota di luar rentang                                      | Ditolak sebelum permintaan dikirim.                                                                                                                           |
+| Tidak ada koneksi saat aplikasi dibuka                              | Data tersimpan dari penyimpanan lokal ditampilkan dan ditandai "DATA LAMA". Bila belum ada data tersimpan, ditampilkan pesan galat dengan tombol "Coba lagi". |
+| Penyimpanan lokal gagal dibaca atau ditulis, atau isinya rusak      | Diabaikan tanpa menghentikan aplikasi; data rusak diperlakukan seperti tidak ada.                                                                             |
+| Satu atau beberapa kota gagal dimuat pada halaman peringkat         | Kota lain tetap ditampilkan. Kota yang gagal memakai data tersimpan, atau ditandai "Data tidak tersedia" dan diletakkan di urutan akhir.                      |
+| Pembaruan otomatis atau tarik-untuk-menyegarkan gagal               | Data lama tetap ditampilkan dan ditandai "DATA LAMA". Pada penyegaran manual, pengguna juga diberi tahu lewat SnackBar.                                       |
+| Jawaban lama tiba setelah pengguna berganti kota                    | Diabaikan menggunakan nomor permintaan.                                                                                                                       |
+| Jawaban tiba setelah layar ditutup                                  | Diabaikan agar tidak terjadi pembaruan pada objek yang sudah dibuang.                                                                                         |
 
 ## Pengujian
 
@@ -193,13 +191,13 @@ balikpapan('Balikpapan', -1.24, 116.85),
 
 ## Pembagian Tugas
 
-| Anggota | Tanggung jawab |
-|---------|----------------|
-| 1 | Layanan dan repositori (pemanggilan API, parsing JSON) |
-| 2 | ViewModel dan penanganan galat |
-| 3 | Desain tampilan: kartu AQI dan skala warna |
-| 4 | Desain tampilan: polutan, grafik, animasi, dan halaman peringkat |
-| 5 | Penyimpanan lokal, pengujian, dokumentasi, dan tangkapan layar |
+| Anggota | Tanggung jawab                                                   |
+| ------- | ---------------------------------------------------------------- |
+| 1       | Layanan dan repositori (pemanggilan API, parsing JSON)           |
+| 2       | ViewModel dan penanganan galat                                   |
+| 3       | Desain tampilan: kartu AQI dan skala warna                       |
+| 4       | Desain tampilan: polutan, grafik, animasi, dan halaman peringkat |
+| 5       | Penyimpanan lokal, pengujian, dokumentasi, dan tangkapan layar   |
 
 (Sesuaikan dengan pembagian tugas kelompok yang sebenarnya.)
 
