@@ -6,14 +6,16 @@ Aplikasi Flutter untuk memantau kualitas udara di delapan kota kampus secara lan
 
 | No  | Nama                         | NIM        |
 | --- | ---------------------------- | ---------- |
-| 1   | Rusdianysah                  | 2409106013 |
+| 1   | Rusdiansyah                  | 2409106013 |
 | 2   | Elfin Sinaga                 | 2409106024 |
 | 3   | Akhmad Zifa Al-Fatih         | 2409106025 |
 | 4   | Muhammad Naufal Rifyan Ilham | 2409106034 |
 | 5   | Rangga Lawe                  | 2409106043 |
 
 Mata kuliah: Pemrograman Piranti Bergerak
+
 Dosen pengampu: Anton Prafanto, S.Kom., M.T
+
 Kelas: A'24
 
 ## Deskripsi Aplikasi
