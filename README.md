@@ -122,13 +122,10 @@ Alur data mengikuti pola MVVM: `Layanan` mengambil JSON, `Repositori` mengubahny
 Prasyarat: Flutter SDK 3.19 atau lebih baru dan koneksi internet.
 
 ```bash
-# 1. Buat kerangka platform di dalam folder proyek (sekali saja)
-flutter create --project-name udara_kampus .
-
-# 2. Pasang dependensi
+# 1. Pasang dependensi
 flutter pub get
 
-# 3. Jalankan aplikasi
+# 2. Jalankan aplikasi
 flutter run -d chrome        # atau pilih emulator / perangkat Android
 ```
 
@@ -201,7 +198,6 @@ balikpapan('Balikpapan', -1.24, 116.85),
 | 4       | Desain tampilan: polutan, grafik, animasi, dan halaman peringkat |
 | 5       | Penyimpanan lokal, pengujian, dokumentasi, dan tangkapan layar   |
 
-(Sesuaikan dengan pembagian tugas kelompok yang sebenarnya.)
 
 ## Referensi
 

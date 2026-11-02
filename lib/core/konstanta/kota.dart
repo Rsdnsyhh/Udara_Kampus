@@ -9,6 +9,7 @@ enum Kota {
   yogyakarta('Yogyakarta', -7.80, 110.37),
   surabaya('Surabaya', -7.25, 112.75),
   denpasar('Denpasar', -8.65, 115.22),
+  balikpapan('Balikpapan', -1.24, 116.85),
   samarinda('Samarinda', -0.50, 117.15),
   makassar('Makassar', -5.15, 119.43),
   medan('Medan', 3.59, 98.67);
